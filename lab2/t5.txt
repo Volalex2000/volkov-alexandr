@@ -1,0 +1,13 @@
+import turtle as t
+t.shape('turtle')
+
+
+for j in range(10):
+    for i in range(4):
+        t.pendown()
+        t.forward(20*(j+1))
+        t.left(90)
+        t.penup()
+    t.goto(-10*(j+1), -10*(j+1))
+
+input()

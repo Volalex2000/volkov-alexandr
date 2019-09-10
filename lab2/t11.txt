@@ -1,0 +1,29 @@
+import turtle as t
+t.shape('turtle')
+t.speed(10)
+
+t.left(90)
+
+def c1(n):
+    import turtle as t
+    t.shape('turtle')
+    t.speed(10)
+    
+    for i in range(180):
+        t.forward(n)
+        t.left(2)
+    
+def c2(n):
+    import turtle as t
+    t.shape('turtle')
+    t.speed(10)
+    
+    for i in range(180):
+        t.forward(n)
+        t.right(2)
+
+n=3
+for i in range (n):
+    c1(i+1)
+    c2(i+1)
+input()

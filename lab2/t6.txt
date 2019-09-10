@@ -1,0 +1,13 @@
+import turtle as t
+t.shape('turtle')
+
+n=6
+for j in range(n):
+    t.forward(50)
+    t.stamp()
+    t.right(180)
+    t.forward(50)
+    t.right(180)
+    t.right(int(360/n))
+
+input()
