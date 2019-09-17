@@ -10,23 +10,24 @@ def f2():
     while not wall_is_on_the_left():
         move_left(n=1)
     
-@task
-def task_8_28():
-    i=0
-    while not wall_is_on_the_left() and i==0:
-        if not wall_is_above():
-            move_up(n=1)
-            i=1
-            break
-        else:
+def pr(n):
+    if not wall_is_above():
+        move_up(n=1)
+        break  
+    else:
+        if n==0:
             move_left(n=1)
-            
-    while not wall_is_on_the_right() and i==0:
-        if not wall_is_above():
-            move_up(n=1)
-            break
         else:
             move_right(n=1)
+
+    
+    
+@task
+def task_8_28():
+    while not wall_is_on_the_left():
+        pr(0)   
+    while not wall_is_on_the_right():
+        pr(1)
     f1()
     f2()
         
