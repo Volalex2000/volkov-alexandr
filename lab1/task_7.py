@@ -10,7 +10,6 @@ def task_5_4():
     while wall_is_beneath():
         move_right(n=1)
     move_down(n=1)
-    move_left(n=1)
     while not wall_is_on_the_left():
         move_left(n=1)
 
