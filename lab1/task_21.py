@@ -6,7 +6,7 @@ from pyrob.api import *
 def task_4_11():
     move_right(n=1)
     i=0
-    while i!=12:
+    for i in range(0, 12, 2):
         move_down(n=1)
         for j in range(i+1):
             fill_cell()
@@ -16,7 +16,6 @@ def task_4_11():
             fill_cell()
             move_left(n=1)
         fill_cell()
-        i=i+2
     move_down(n=1)
     for i in range (12):
         fill_cell()
