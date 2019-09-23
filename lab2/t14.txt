@@ -2,13 +2,20 @@ import turtle as t
 t.shape('turtle')
 t.speed(10)
 
-for i in range (5):
-    t.forward(100)
-    t.left(180-180/5)
-    
-t.left(180)
+def zv(n):
+    import turtle as t
+    t.shape('turtle')
+    t.speed(10)
 
-for i in range (11):
-    t.forward(100)
-    t.left(180-180/11) 
+    for i in range (n):
+        t.forward(100)
+        t.left(180-180/n)
+
+zv(5)
+t.left(180)
+t.penup()
+t.forward(40)
+t.pendown()
+zv(11)
+
 input()

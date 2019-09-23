@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 
 from pyrob.api import *
-       
-@task(delay=0.01)
-                   
+
+def kr(a,b,c):
+    if a!=b and a!=c:
+            fill_cell()
+
+@task(delay=0.01)              
 def task_9_3():
     h=0
     while not wall_is_on_the_right():
@@ -13,19 +16,15 @@ def task_9_3():
     
     for i in range(h):
         for j in range(h):
-            if j!=h-i and j!=i:
-                fill_cell()
+            kr(j, h-i, i)
             move_right(n=1)
-        if j+1!=h-i and j+1!=i:
-            fill_cell()
+        kr(j+1, h-i, i)
         move_left(n=h)
         move_down(n=1)
     for j in range(h):
-        if j!=h-1-i and j!=i+1:
-            fill_cell()
+        kr(j, h-i-1, i+1)
         move_right(n=1)
-    if j+1!=h-1-i and j+1!=i+1:
-        fill_cell()
+    kr(j+1, h-i-1, i+1)
     move_left(n=h)
           
 if __name__ == '__main__':

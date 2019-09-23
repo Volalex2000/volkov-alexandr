@@ -1,0 +1,15 @@
+import turtle as t
+from math import cos
+from math import pi
+t.shape('turtle')
+t.speed(10)
+
+p=pi/180
+fi=0
+a=89
+for i in range(200):
+    t.forward(0.1*(1+(fi)**2)**0.5)
+    fi+=1
+    t.left(1000*p*(1+cos(a)**2/(2*fi**2)))
+    a-=cos(p*a)**2/(40*fi**2)
+input()
