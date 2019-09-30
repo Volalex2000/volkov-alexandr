@@ -33,7 +33,7 @@ for i in range(200,600,100):
         d2=gr.Circle(gr.Point(i, j), 150)
         d2.setFill("#00a0a0")
         d2.draw(w)   
-chl=Polygon(gr.Point(650, 300),gr.Point(750, 400),gr.Point(650, 300))
+chl=gr.Polygon(gr.Point(650, 300),gr.Point(750, 400),gr.Point(650, 300))
 chl.setWidth(30)
 w.getMouse()
 w.close()
