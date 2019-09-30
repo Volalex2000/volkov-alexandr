@@ -3,16 +3,33 @@ SIZE_X = 400
 SIZE_Y = 400
 window = gr.GraphWin("Model", SIZE_X, SIZE_Y)
 
-def change_coordinates():
-    pass
+def change_coordinates(x1, y1, x2, y2, x3, y3, vx1, vy1, vx2, vy2, vx3, vy3):
+    x1 = x1 + vx1
+    y1 = y1 + vy1
+    x2 = x2 + vx2
+    y2 = y2 + vy2
+    x3 = x3 + vx3
+    y3 = y3 + vy3
 
-def force(x1, y1, x2, y2):
+def force_x_2_objects(x1, y1, x2, y2):
     if module_f(x1, x2) != 0:
-        return (10000 / distance_objects(x1, x2, y1, y2)) * ((1 + (((y2 - y1) / (x2 - x1)) ** 2)) ** -0.5)*module_f(x1, x2)
+        return (10000 / distance_objects(x1, y1, x2, y2)) * ((1 + (((y2 - y1) / (x2 - x1)) ** 2)) ** -0.5)*module_f(x1, x2)
     else:
         return 0
 
-def distance_objects(x1, x2, y1, y2):
+def force_y_2_objects(x1, y1, x2, y2):
+    if module_f(x1, x2) != 0:
+        return (10000 / distance_objects(x1, y1, x2, y2)) * ((1 + (((x2 - x1) / (y2 - y1)) ** 2)) ** -0.5)*module_f(y1, y2)
+    else:
+        return 0
+
+def force_x_all(x1, y1, x2, y2, x3, y3):
+    return force_y_2_objects(x1, y1, x2, y2) + force_y_2_objects(x1, y1, x3, y3)
+
+def force_x_all(x1, y1, x2, y2, x3, y3):
+    return force_y_2_objects(x1, y1, x2, y2) + force_y_2_objects(x1, y1, x3, y3)
+
+def distance_objects(x1, y1, x2, y2):
     return (x1-x2)**2+(y1-y2)**2
 
 def module_f(x1, x2):
@@ -48,8 +65,8 @@ def main():
     vx3 = 5
     vy3 = -5
 
+    change_coordinates(x1, y1, x2, y2, x3, y3, vx1, vy1, vx2, vy2, vx3, vy3)
     change_speed()
-    change_coordinates
     
 main()
 window.getMouse()
