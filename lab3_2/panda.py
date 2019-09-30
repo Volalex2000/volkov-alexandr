@@ -5,6 +5,9 @@ SIZE_Y = 400
 
 window = gr.GraphWin("Model", SIZE_X, SIZE_Y)
 
+def oval():
+    
+
 def stalk():
     pass
 
