@@ -26,7 +26,7 @@ def force_y_2_objects(x1, y1, x2, y2):
 def force_x_all(x1, y1, x2, y2, x3, y3):
     return force_y_2_objects(x1, y1, x2, y2) + force_y_2_objects(x1, y1, x3, y3)
 
-def force_x_all(x1, y1, x2, y2, x3, y3):
+def force_y_all(x1, y1, x2, y2, x3, y3):
     return force_y_2_objects(x1, y1, x2, y2) + force_y_2_objects(x1, y1, x3, y3)
 
 def distance_objects(x1, y1, x2, y2):
@@ -38,8 +38,13 @@ def module_f(x1, x2):
     else:
         return 0
 
-def change_speed():
-    pass
+def change_speed(x1, y1, x2, y2, x3, y3, vx1, vy1, vx2, vy2, vx3, vy3):
+    vx1 = vx1 + force_x_all(x1, y1, x2, y2, x3, y3)
+    vy1 = vy1 + force_y_all(x1, y1, x2, y2, x3, y3)
+    vx2 = vx2 + force_x_all(x2, y2, x3, y3, x1, y1)
+    vy2 = vy2 + force_y_all(x2, y2, x3, y3, x2, y2)
+    vx3 = vx3 + force_x_all(x3, y3, x1, y1, x2, y2)
+    vy3 = vy3 + force_y_all(x3, y3, x1, y1, x2, y2)
 
 def draw_objects(x1, y1, x2, y2, x3, y3):
     object_1 = gr.Circle(gr.Point(x1, y1), 10)
@@ -66,7 +71,7 @@ def main():
     vy3 = -5
 
     change_coordinates(x1, y1, x2, y2, x3, y3, vx1, vy1, vx2, vy2, vx3, vy3)
-    change_speed()
+    change_speed(x1, y1, x2, y2, x3, y3, vx1, vy1, vx2, vy2, vx3, vy3)
     
 main()
 window.getMouse()
