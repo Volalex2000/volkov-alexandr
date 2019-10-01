@@ -37,13 +37,13 @@ def force_y_all(x1, y1, x2, y2, x3, y3):
 
 def force_x_2_objects(x1, y1, x2, y2):
     if x1 != x2:
-        return (1000 / distance_objects(x1, y1, x2, y2)) * ((1 + (((y2 - y1) / (x2 - x1)) ** 2)) ** -0.5) * module_f(x1, x2)
+        return (3000 / distance_objects(x1, y1, x2, y2)) * ((1 + (((y2 - y1) / (x2 - x1)) ** 2)) ** -0.5) * module_f(x1, x2)
     else:
         return 0
 
 def force_y_2_objects(x1, y1, x2, y2):
     if y1 != y2:
-        return (1000 / distance_objects(x1, y1, x2, y2)) * ((1 + (((x2 - x1) / (y2 - y1)) ** 2)) ** -0.5) * module_f(y1, y2)
+        return (3000 / distance_objects(x1, y1, x2, y2)) * ((1 + (((x2 - x1) / (y2 - y1)) ** 2)) ** -0.5) * module_f(y1, y2)
     else:
         return 0
 
@@ -71,12 +71,12 @@ object_1.draw(window)
 object_2.draw(window)
 object_3.draw(window)
 
-vx1 = -3
-vy1 = -2
-vx2 = 2
-vy2 = -2
-vx3 = 3
-vy3 = 2
+vx1 = -4
+vy1 = 0
+vx2 = 0
+vy2 = 0
+vx3 = 4
+vy3 = 0
 
 for i in range(1000):
     change_coordinates()
